@@ -17,20 +17,29 @@
 
 void PlotResultsEmulator(int option=1,TString suffix="jets"){
 
-  TString inputfile;
-  if(option==1) inputfile="OutputEmulator/fileoutput.root";
-  if(option==2) inputfile="OutputUnpacker/fileoutput.root";
+  TString inputfileEmulator="OutputEmulator/fileoutput.root";
+  TString inputfileUnpacker="OutputUnpacker/fileoutput.root";
 
-  TFile*fout=new TFile(inputfile.Data(),"read");
+  TFile*foutEmulator=new TFile(inputfileEmulator.Data(),"read");
+  TFile*foutUnpacker=new TFile(inputfileUnpacker.Data(),"read");
 
-  TH1D *hwPt = (TH1D*)fout->Get(Form("hwPt_%s",suffix.Data()));
-  TH1D *hwEta= (TH1D*)fout->Get(Form("hwEta_%s",suffix.Data()));
-  TH1D *hwPhi= (TH1D*)fout->Get(Form("hwPhi_%s",suffix.Data()));
-  TH1D *hwQual= (TH1D*)fout->Get(Form("hwQual_%s",suffix.Data()));
-  TH1D *hwIso= (TH1D*)fout->Get(Form("hwIso_%s",suffix.Data()));
-  TH1D *hpt= (TH1D*)fout->Get(Form("hpt_%s",suffix.Data()));
-  TH1D *heta= (TH1D*)fout->Get(Form("heta_%s",suffix.Data()));
-  TH1D *hphi= (TH1D*)fout->Get(Form("hphi_%s",suffix.Data()));
+  TH1D *hwPtEmulator = (TH1D*)foutEmulator->Get(Form("hwPt_%s",suffix.Data()));
+  TH1D *hwEtaEmulator= (TH1D*)foutEmulator->Get(Form("hwEta_%s",suffix.Data()));
+  TH1D *hwPhiEmulator= (TH1D*)foutEmulator->Get(Form("hwPhi_%s",suffix.Data()));
+  TH1D *hwQualEmulator= (TH1D*)foutEmulator->Get(Form("hwQual_%s",suffix.Data()));
+  TH1D *hwIsoEmulator= (TH1D*)foutEmulator->Get(Form("hwIso_%s",suffix.Data()));
+  TH1D *hptEmulator= (TH1D*)foutEmulator->Get(Form("hpt_%s",suffix.Data()));
+  TH1D *hetaEmulator= (TH1D*)foutEmulator->Get(Form("heta_%s",suffix.Data()));
+  TH1D *hphiEmulator= (TH1D*)foutEmulator->Get(Form("hphi_%s",suffix.Data()));
+
+  TH1D *hwPtUnpacker = (TH1D*)foutUnpacker->Get(Form("hwPt_%s",suffix.Data()));
+  TH1D *hwEtaUnpacker= (TH1D*)foutUnpacker->Get(Form("hwEta_%s",suffix.Data()));
+  TH1D *hwPhiUnpacker= (TH1D*)foutUnpacker->Get(Form("hwPhi_%s",suffix.Data()));
+  TH1D *hwQualUnpacker= (TH1D*)foutUnpacker->Get(Form("hwQual_%s",suffix.Data()));
+  TH1D *hwIsoUnpacker= (TH1D*)foutUnpacker->Get(Form("hwIso_%s",suffix.Data()));
+  TH1D *hptUnpacker= (TH1D*)foutUnpacker->Get(Form("hpt_%s",suffix.Data()));
+  TH1D *hetaUnpacker= (TH1D*)foutUnpacker->Get(Form("heta_%s",suffix.Data()));
+  TH1D *hphiUnpacker= (TH1D*)foutUnpacker->Get(Form("hphi_%s",suffix.Data()));
 
 
   TCanvas*canvas=new TCanvas("canvas","canvas",1500,1000);  
@@ -38,42 +47,54 @@ void PlotResultsEmulator(int option=1,TString suffix="jets"){
 
   canvas->cd(1);
   //canvas_1->SetLogy();
-  if(suffix!="etsums") hwPt->GetXaxis()->SetRangeUser(0.,50.);
-  else hwPt->GetXaxis()->SetRangeUser(0.,700.);
-  hwPt->Draw();
+  if(suffix!="etsums") hwPtEmulator->GetXaxis()->SetRangeUser(0.,50.);
+  else hwPtEmulator->GetXaxis()->SetRangeUser(0.,700.);
+  hwPtEmulator->Draw();
+  hwPtUnpacker->SetLineColor(2);
+  hwPtUnpacker->Draw("same");
   canvas->cd(2);
   //canvas_2->SetLogy();
-  hwEta->GetXaxis()->SetRangeUser(0.,20.);
-  hwEta->Draw();
+  hwEtaEmulator->GetXaxis()->SetRangeUser(0.,20.);
+  hwEtaEmulator->Draw();
+  hwEtaUnpacker->SetLineColor(2);
+  hwEtaUnpacker->Draw("same");
   canvas->cd(3);
   //canvas_3->SetLogy();
-  hwPhi->GetXaxis()->SetRangeUser(0.,30.);
-  hwPhi->Draw();
+  hwPhiEmulator->GetXaxis()->SetRangeUser(0.,30.);
+  hwPhiEmulator->Draw();
   canvas->cd(4);
   //canvas_4->SetLogy();
-  hwQual->GetXaxis()->SetRangeUser(0.,4.);
-  hwQual->Draw();
+  hwQualEmulator->GetXaxis()->SetRangeUser(0.,4.);
+  hwQualEmulator->Draw();
+  hwQualUnpacker->SetLineColor(2);
+  hwQualUnpacker->Draw("same");
 
   canvas->cd(5);
   //canvas_5->SetLogy();
-  hwIso->GetXaxis()->SetRangeUser(0.,4.);
-  hwIso->Draw();
+  hwIsoEmulator->GetXaxis()->SetRangeUser(0.,4.);
+  hwIsoEmulator->Draw();
+  hwIsoUnpacker->SetLineColor(2);
+  hwIsoUnpacker->Draw("same");
   canvas->cd(6);
   //canvas_6->SetLogy();
-  hpt->GetXaxis()->SetRangeUser(0.,100.);
-  hpt->Draw();
+  hptEmulator->GetXaxis()->SetRangeUser(0.,100.);
+  hptEmulator->Draw();
+  hptUnpacker->SetLineColor(2);
+  hptUnpacker->Draw("same");
   canvas->cd(7);
   //canvas_7->SetLogy();
-  heta->GetXaxis()->SetRangeUser(-6.,6.);
-  heta->Draw();
+  hetaEmulator->GetXaxis()->SetRangeUser(-6.,6.);
+  hetaEmulator->Draw();
+  hetaUnpacker->SetLineColor(2);
+  hetaUnpacker->Draw("same");
   canvas->cd(8);
   //canvas_8->SetLogy();
-  hphi->GetXaxis()->SetRangeUser(-6.,6.);
-  hphi->Draw();
+  hphiEmulator->GetXaxis()->SetRangeUser(-6.,6.);
+  hphiEmulator->Draw();
+  hphiUnpacker->SetLineColor(2);
+  hphiUnpacker->Draw("same");
 
-
-  if(option==1) canvas->SaveAs(Form("PlotsEmulator/canvas_%s.pdf",suffix.Data()));
-  if(option==2) canvas->SaveAs(Form("PlotsUnpacker/canvas_%s.pdf",suffix.Data()));
+  canvas->SaveAs(Form("PlotsEmulatorVsUnpacker/canvas_%s.pdf",suffix.Data()));
 
 }
 
