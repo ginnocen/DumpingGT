@@ -43,12 +43,14 @@ void PlotResultsEmulatorRCTRegions(int option==1){
   canvas->cd(1);
   //canvas_1->SetLogy();
   hlegacyregion_etEmulator->GetXaxis()->SetRangeUser(0.,50.);
+  hlegacyregion_etEmulator->SetLineWidth(3);
   hlegacyregion_etEmulator->Draw();
   hlegacyregion_etUnpacker->SetLineColor(2);
   hlegacyregion_etUnpacker->Draw("same");
   canvas->cd(2);
   //canvas_2->SetLogy();
   hlegacyregion_gctEtaEmulator->GetXaxis()->SetRangeUser(0.,20.);
+  hlegacyregion_gctEtaEmulator->SetLineWidth(3);
   hlegacyregion_gctEtaEmulator->Draw();
   hlegacyregion_gctEtaUnpacker->SetLineColor(2);
   hlegacyregion_gctEtaUnpacker->Draw("same");
@@ -56,6 +58,7 @@ void PlotResultsEmulatorRCTRegions(int option==1){
   canvas->cd(3);
   //canvas_3->SetLogy();
   hlegacyregion_gctPhiEmulator->GetXaxis()->SetRangeUser(0.,30.);
+  hlegacyregion_gctPhiEmulator->SetLineWidth(3);
   hlegacyregion_gctPhiEmulator->Draw();
   hlegacyregion_gctPhiUnpacker->SetLineColor(2);
   hlegacyregion_gctPhiUnpacker->Draw("same");
@@ -63,6 +66,7 @@ void PlotResultsEmulatorRCTRegions(int option==1){
   canvas->cd(4);
   //canvas_4->SetLogy();
   hlegacyregion_crateEmulator->GetXaxis()->SetRangeUser(0.,30.);
+  hlegacyregion_crateEmulator->SetLineWidth(3);
   hlegacyregion_crateEmulator->Draw();
   hlegacyregion_crateUnpacker->SetLineColor(2);
   hlegacyregion_crateUnpacker->Draw("same");
@@ -70,6 +74,7 @@ void PlotResultsEmulatorRCTRegions(int option==1){
   canvas->cd(5);
   //canvas_5->SetLogy();
   hlegacyregion_cardEmulator->GetXaxis()->SetRangeUser(0.,30.);
+  hlegacyregion_cardEmulator->SetLineWidth(3);
   hlegacyregion_cardEmulator->Draw();
   hlegacyregion_cardUnpacker->SetLineColor(2);
   hlegacyregion_cardUnpacker->Draw("same");
@@ -77,6 +82,7 @@ void PlotResultsEmulatorRCTRegions(int option==1){
   canvas->cd(6);
   //canvas_6->SetLogy();
   hlegacyregion_indexEmulator->GetXaxis()->SetRangeUser(0.,30.);
+  hlegacyregion_indexEmulator->SetLineWidth(3);
   hlegacyregion_indexEmulator->Draw();
   hlegacyregion_indexUnpacker->SetLineColor(2);
   hlegacyregion_indexUnpacker->Draw("same");
@@ -116,6 +122,7 @@ void PlotResultsEmulatorRCTEmcands(int option=1){
   canvas->cd(1);
   //canvas_1->SetLogy();
   hlegacyemcand_rankEmulator->GetXaxis()->SetRangeUser(0.,50.);
+  hlegacyemcand_rankEmulator->SetLineWidth(3);
   hlegacyemcand_rankEmulator->Draw();
   hlegacyemcand_rankUnpacker->SetLineColor(2);
   hlegacyemcand_rankUnpacker->Draw("same");
@@ -123,6 +130,7 @@ void PlotResultsEmulatorRCTEmcands(int option=1){
   canvas->cd(2);
   //canvas_2->SetLogy();
   hlegacyemcand_regionEtaEmulator->GetXaxis()->SetRangeUser(0.,20.);
+  hlegacyemcand_regionEtaEmulator->SetLineWidth(3);
   hlegacyemcand_regionEtaEmulator->Draw();
   hlegacyemcand_regionEtaUnpacker->SetLineColor(2);
   hlegacyemcand_regionEtaUnpacker->Draw("same");
@@ -130,6 +138,7 @@ void PlotResultsEmulatorRCTEmcands(int option=1){
   canvas->cd(3);
   //canvas_3->SetLogy();
   hlegacyemcand_regionPhiEmulator->GetXaxis()->SetRangeUser(0.,30.);
+  hlegacyemcand_regionPhiEmulator->SetLineWidth(3);
   hlegacyemcand_regionPhiEmulator->Draw();
   hlegacyemcand_regionPhiUnpacker->SetLineColor(2);
   hlegacyemcand_regionPhiUnpacker->Draw("same");
@@ -137,6 +146,7 @@ void PlotResultsEmulatorRCTEmcands(int option=1){
   canvas->cd(4);
   //canvas_4->SetLogy();
   hlegacyemcand_crateEmulator->GetXaxis()->SetRangeUser(0.,4.);
+  hlegacyemcand_crateEmulator->SetLineWidth(3);
   hlegacyemcand_crateEmulator->Draw();
   hlegacyemcand_crateUnpacker->SetLineColor(2);
   hlegacyemcand_crateUnpacker->Draw("same");
@@ -144,6 +154,7 @@ void PlotResultsEmulatorRCTEmcands(int option=1){
   canvas->cd(5);
   //canvas_5->SetLogy();
   hlegacyemcand_cardEmulator->GetXaxis()->SetRangeUser(0.,4.);
+  hlegacyemcand_cardEmulator->SetLineWidth(3);
   hlegacyemcand_cardEmulator->Draw();
   hlegacyemcand_cardUnpacker->SetLineColor(2);
   hlegacyemcand_cardUnpacker->Draw("same");
@@ -151,6 +162,7 @@ void PlotResultsEmulatorRCTEmcands(int option=1){
   canvas->cd(6);
   //canvas_5->SetLogy();
   hlegacyemcand_indexEmulator->GetXaxis()->SetRangeUser(0.,4.);
+  hlegacyemcand_indexEmulator->SetLineWidth(3);
   hlegacyemcand_indexEmulator->Draw();
   hlegacyemcand_indexUnpacker->SetLineColor(2);
   hlegacyemcand_indexUnpacker->Draw("same");
@@ -158,6 +170,7 @@ void PlotResultsEmulatorRCTEmcands(int option=1){
   canvas->cd(7);
   //canvas_5->SetLogy();
   hlegacyemcand_isoEmulator->GetXaxis()->SetRangeUser(0.,4.);
+  hlegacyemcand_isoEmulator->SetLineWidth(3);
   hlegacyemcand_isoEmulator->Draw();
   hlegacyemcand_isoUnpacker->SetLineColor(2);
   hlegacyemcand_isoUnpacker->Draw("same");
