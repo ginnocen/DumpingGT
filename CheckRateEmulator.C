@@ -25,8 +25,8 @@ const int Nemcands = 144;
 void CheckRateEmulator(int option=1){
 
   TString l1_input;
-  if (option==1) l1_input= "/afs/cern.ch/user/g/ginnocen/public/MP7testsP5/L1UpgradeAnalyzer_Unpacker.root";
-  if (option==2) l1_input = "/afs/cern.ch/user/g/ginnocen/public/MP7testsP5/L1UpgradeAnalyzer_Emulator.root";
+  if (option==1) l1_input= "/afs/cern.ch/user/g/ginnocen/CMSSW_7_3_0_pre2/src/Analyzers/L1UpgradeAnalyzer/test/prova.root";
+  if (option==2) l1_input = "/afs/cern.ch/work/r/richard/public/CMSSW_7_4_0_pre5-83-g3b347ba-L1UpgradeAnalyzer.root";
   TFile *lFile = TFile::Open(l1_input.Data());
   TTree *l1Tree = (TTree*)lFile->Get("L1UpgradeAnalyzer/L1UpgradeTree");
 
@@ -81,6 +81,23 @@ void CheckRateEmulator(int option=1){
   TH1F*hlegacyemcand_card=new TH1F("hlegacyemcand_card","hlegacyemcand_card",300,0,300);
   TH1F*hlegacyemcand_index=new TH1F("hlegacyemcand_index","hlegacyemcand_index",300,0,300);
   TH1F*hlegacyemcand_iso=new TH1F("hlegacyemcand_iso","hlegacyemcand_iso",300,0,300);
+
+  TH1F*hlegacyemcandiso_rank=new TH1F("hlegacyemcandiso_rank","hlegacyemcandiso_rank",300,0,300);
+  TH1F*hlegacyemcandiso_regionEta=new TH1F("hlegacyemcandiso_regionEta","hlegacyemcandiso_regionEta",300,0,300);
+  TH1F*hlegacyemcandiso_regionPhi=new TH1F("hlegacyemcandiso_regionPhi","hlegacyemcandiso_regionPhi",300,0,300);
+  TH1F*hlegacyemcandiso_crate=new TH1F("hlegacyemcandiso_crate","hlegacyemcandiso_crate",300,0,300);
+  TH1F*hlegacyemcandiso_card=new TH1F("hlegacyemcandiso_card","hlegacyemcandiso_card",300,0,300);
+  TH1F*hlegacyemcandiso_index=new TH1F("hlegacyemcandiso_index","hlegacyemcandiso_index",300,0,300);
+  TH1F*hlegacyemcandiso_iso=new TH1F("hlegacyemcandiso_iso","hlegacyemcandiso_iso",300,0,300);
+
+
+  TH1F*hlegacyemcandnoniso_rank=new TH1F("hlegacyemcandnoniso_rank","hlegacyemcandnoniso_rank",300,0,300);
+  TH1F*hlegacyemcandnoniso_regionEta=new TH1F("hlegacyemcandnoniso_regionEta","hlegacyemcandnoniso_regionEta",300,0,300);
+  TH1F*hlegacyemcandnoniso_regionPhi=new TH1F("hlegacyemcandnoniso_regionPhi","hlegacyemcandnoniso_regionPhi",300,0,300);
+  TH1F*hlegacyemcandnoniso_crate=new TH1F("hlegacyemcandnoniso_crate","hlegacyemcandnoniso_crate",300,0,300);
+  TH1F*hlegacyemcandnoniso_card=new TH1F("hlegacyemcandnoniso_card","hlegacyemcandnoniso_card",300,0,300);
+  TH1F*hlegacyemcandnoniso_index=new TH1F("hlegacyemcandnoniso_index","hlegacyemcandnoniso_index",300,0,300);
+  TH1F*hlegacyemcandnoniso_iso=new TH1F("hlegacyemcandnoniso_iso","hlegacyemcandnoniso_iso",300,0,300);
 
 
   Int_t l1_event, l1_run;
@@ -386,6 +403,28 @@ void CheckRateEmulator(int option=1){
       hlegacyemcand_index->Fill((legacyemcand_index[i]));
       hlegacyemcand_iso->Fill((legacyemcand_iso[i]));
 
+     if(legacyemcand_iso[i]==1){
+      hlegacyemcandiso_rank->Fill((legacyemcand_rank[i]));
+      hlegacyemcandiso_regionEta->Fill((legacyemcand_regionEta[i]));
+      hlegacyemcandiso_regionPhi->Fill((legacyemcand_regionPhi[i]));
+      hlegacyemcandiso_crate->Fill((legacyemcand_crate[i]));
+      hlegacyemcandiso_card->Fill((legacyemcand_card[i]));
+      hlegacyemcandiso_index->Fill((legacyemcand_index[i]));
+      hlegacyemcandiso_iso->Fill((legacyemcand_iso[i]));
+     }
+     
+     if(legacyemcand_iso[i]==0){
+      hlegacyemcandnoniso_rank->Fill((legacyemcand_rank[i]));
+      hlegacyemcandnoniso_regionEta->Fill((legacyemcand_regionEta[i]));
+      hlegacyemcandnoniso_regionPhi->Fill((legacyemcand_regionPhi[i]));
+      hlegacyemcandnoniso_crate->Fill((legacyemcand_crate[i]));
+      hlegacyemcandnoniso_card->Fill((legacyemcand_card[i]));
+      hlegacyemcandnoniso_index->Fill((legacyemcand_index[i]));
+      hlegacyemcandnoniso_iso->Fill((legacyemcand_iso[i]));
+     }
+
+
+
     }
 
 
@@ -528,6 +567,23 @@ void CheckRateEmulator(int option=1){
   hlegacyemcand_card->Write();
   hlegacyemcand_index->Write();
   hlegacyemcand_iso->Write();
+  
+  hlegacyemcandiso_rank->Write();
+  hlegacyemcandiso_regionEta->Write();
+  hlegacyemcandiso_regionPhi->Write();
+  hlegacyemcandiso_crate->Write();
+  hlegacyemcandiso_card->Write();
+  hlegacyemcandiso_index->Write();
+  hlegacyemcandiso_iso->Write();
+
+  hlegacyemcandnoniso_rank->Write();
+  hlegacyemcandnoniso_regionEta->Write();
+  hlegacyemcandnoniso_regionPhi->Write();
+  hlegacyemcandnoniso_crate->Write();
+  hlegacyemcandnoniso_card->Write();
+  hlegacyemcandnoniso_index->Write();
+  hlegacyemcandnoniso_iso->Write();
+
 
   fout->Close();
   delete fout;
