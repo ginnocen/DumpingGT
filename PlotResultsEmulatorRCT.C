@@ -114,6 +114,39 @@ void PlotResultsEmulatorRCTEmcands(int option=1){
   TH1D *hlegacyemcand_cardUnpacker= (TH1D*)foutUnpacker->Get("hlegacyemcand_card");
   TH1D *hlegacyemcand_indexUnpacker= (TH1D*)foutUnpacker->Get("hlegacyemcand_index");  
   TH1D *hlegacyemcand_isoUnpacker= (TH1D*)foutUnpacker->Get("hlegacyemcand_iso");  
+  
+  TH1D *hlegacyemcandiso_rankEmulator = (TH1D*)foutEmulator->Get("hlegacyemcandiso_rank");
+  TH1D *hlegacyemcandiso_regionEtaEmulator= (TH1D*)foutEmulator->Get("hlegacyemcandiso_regionEta");
+  TH1D *hlegacyemcandiso_regionPhiEmulator= (TH1D*)foutEmulator->Get("hlegacyemcandiso_regionPhi");
+  TH1D *hlegacyemcandiso_crateEmulator= (TH1D*)foutEmulator->Get("hlegacyemcandiso_crate");
+  TH1D *hlegacyemcandiso_cardEmulator= (TH1D*)foutEmulator->Get("hlegacyemcandiso_card");
+  TH1D *hlegacyemcandiso_indexEmulator= (TH1D*)foutEmulator->Get("hlegacyemcandiso_index");  
+  TH1D *hlegacyemcandiso_isoEmulator= (TH1D*)foutEmulator->Get("hlegacyemcandiso_iso");  
+
+  TH1D *hlegacyemcandiso_rankUnpacker = (TH1D*)foutUnpacker->Get("hlegacyemcandiso_rank");
+  TH1D *hlegacyemcandiso_regionEtaUnpacker= (TH1D*)foutUnpacker->Get("hlegacyemcandiso_regionEta");
+  TH1D *hlegacyemcandiso_regionPhiUnpacker= (TH1D*)foutUnpacker->Get("hlegacyemcandiso_regionPhi");
+  TH1D *hlegacyemcandiso_crateUnpacker= (TH1D*)foutUnpacker->Get("hlegacyemcandiso_crate");
+  TH1D *hlegacyemcandiso_cardUnpacker= (TH1D*)foutUnpacker->Get("hlegacyemcandiso_card");
+  TH1D *hlegacyemcandiso_indexUnpacker= (TH1D*)foutUnpacker->Get("hlegacyemcandiso_index");  
+  TH1D *hlegacyemcandiso_isoUnpacker= (TH1D*)foutUnpacker->Get("hlegacyemcandiso_iso");  
+
+  TH1D *hlegacyemcandnoniso_rankEmulator = (TH1D*)foutEmulator->Get("hlegacyemcandnoniso_rank");
+  TH1D *hlegacyemcandnoniso_regionEtaEmulator= (TH1D*)foutEmulator->Get("hlegacyemcandnoniso_regionEta");
+  TH1D *hlegacyemcandnoniso_regionPhiEmulator= (TH1D*)foutEmulator->Get("hlegacyemcandnoniso_regionPhi");
+  TH1D *hlegacyemcandnoniso_crateEmulator= (TH1D*)foutEmulator->Get("hlegacyemcandnoniso_crate");
+  TH1D *hlegacyemcandnoniso_cardEmulator= (TH1D*)foutEmulator->Get("hlegacyemcandnoniso_card");
+  TH1D *hlegacyemcandnoniso_indexEmulator= (TH1D*)foutEmulator->Get("hlegacyemcandnoniso_index");  
+  TH1D *hlegacyemcandnoniso_isoEmulator= (TH1D*)foutEmulator->Get("hlegacyemcandnoniso_iso");  
+
+  TH1D *hlegacyemcandnoniso_rankUnpacker = (TH1D*)foutUnpacker->Get("hlegacyemcandnoniso_rank");
+  TH1D *hlegacyemcandnoniso_regionEtaUnpacker= (TH1D*)foutUnpacker->Get("hlegacyemcandnoniso_regionEta");
+  TH1D *hlegacyemcandnoniso_regionPhiUnpacker= (TH1D*)foutUnpacker->Get("hlegacyemcandnoniso_regionPhi");
+  TH1D *hlegacyemcandnoniso_crateUnpacker= (TH1D*)foutUnpacker->Get("hlegacyemcandnoniso_crate");
+  TH1D *hlegacyemcandnoniso_cardUnpacker= (TH1D*)foutUnpacker->Get("hlegacyemcandnoniso_card");
+  TH1D *hlegacyemcandnoniso_indexUnpacker= (TH1D*)foutUnpacker->Get("hlegacyemcandnoniso_index");  
+  TH1D *hlegacyemcandnoniso_isoUnpacker= (TH1D*)foutUnpacker->Get("hlegacyemcandnoniso_iso");  
+
 
 
   TCanvas*canvas=new TCanvas("canvas","canvas",1800,600);  
@@ -177,6 +210,29 @@ void PlotResultsEmulatorRCTEmcands(int option=1){
 
 
   canvas->SaveAs("PlotsEmulatorVsUnpacker/canvas_emcands.pdf");
+  
+
+  TCanvas*canvasIso=new TCanvas("canvasIso","canvasIso",1000,600);  
+  canvasIso->Divide(2,1);
+
+  canvasIso->cd(1);
+  canvasIso_1->SetLogy();
+  hlegacyemcandiso_rankEmulator->GetXaxis()->SetRangeUser(0.,50.);
+  hlegacyemcandiso_rankEmulator->SetLineWidth(3);
+  hlegacyemcandiso_rankEmulator->Draw();
+  hlegacyemcandiso_rankUnpacker->SetLineColor(2);
+  hlegacyemcandiso_rankUnpacker->Draw("same");
+
+  canvasIso->cd(2);
+  canvasIso_2->SetLogy();
+  hlegacyemcandnoniso_rankEmulator->GetXaxis()->SetRangeUser(0.,20.);
+  hlegacyemcandnoniso_rankEmulator->SetLineWidth(3);
+  hlegacyemcandnoniso_rankEmulator->Draw();
+  hlegacyemcandnoniso_rankUnpacker->SetLineColor(2);
+  hlegacyemcandnoniso_rankUnpacker->Draw("same");
+
+  canvasIso->SaveAs("PlotsEmulatorVsUnpacker/canvas_emcandsIsoNonIso.pdf");
+
 
 
 }
