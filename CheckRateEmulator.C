@@ -26,7 +26,7 @@ void CheckRateEmulator(int option=1){
 
   TString l1_input;
   if (option==1) l1_input= "/afs/cern.ch/user/g/ginnocen/CMSSW_7_3_0_pre2/src/Analyzers/L1UpgradeAnalyzer/test/prova.root";
-  if (option==2) l1_input = "/afs/cern.ch/work/r/richard/public/CMSSW_7_4_0_pre5-83-g3b347ba-L1UpgradeAnalyzer.root";
+  if (option==2) l1_input = "/afs/cern.ch/work/r/richard/public/CMSSW_7_4_0_pre5-84-g59d4752-L1UpgradeAnalyzer.root";
   TFile *lFile = TFile::Open(l1_input.Data());
   TTree *l1Tree = (TTree*)lFile->Get("L1UpgradeAnalyzer/L1UpgradeTree");
 
