@@ -383,7 +383,8 @@ void CheckRateEmulator(int option=1){
 
 
     for (int i=0;i<Nregions;i++){
-
+    
+      //std::cout<<"crate="<<legacyregion_crate[i]<<", card="<<legacyregion_card[i]<<", et="<<legacyregion_et[i]<<",index"<<legacyregion_index[i]<<std::endl;
       hlegacyregion_et->Fill((legacyregion_et[i]));
       hlegacyregion_gctEta->Fill((legacyregion_gctEta[i]));
       hlegacyregion_gctPhi->Fill((legacyregion_gctPhi[i]));
@@ -394,6 +395,9 @@ void CheckRateEmulator(int option=1){
     }
 
     for (int i=0;i<Nemcands;i++){
+    
+    
+      //std::cout<<"crate="<<legacyemcand_crate[i]<<", card="<<legacyemcand_card[i]<<", rank="<<legacyemcand_rank[i]<<",index"<<legacyemcand_index[i]<<",iso"<<legacyemcand_iso[i]<<std::endl;
 
       hlegacyemcand_rank->Fill((legacyemcand_rank[i]));
       hlegacyemcand_regionEta->Fill((legacyemcand_regionEta[i]));
