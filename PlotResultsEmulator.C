@@ -15,7 +15,7 @@
 #include <iostream>
 #include <map>
 
-void PlotResultsEmulator(int option=1,TString suffix="jets"){
+void PlotResultsEmulator(TString suffix="egammas"){
 
   TString inputfileEmulator="OutputEmulator/fileoutput.root";
   TString inputfileUnpacker="OutputUnpacker/fileoutput.root";
@@ -69,7 +69,7 @@ void PlotResultsEmulator(int option=1,TString suffix="jets"){
   hwPhiUnpacker->Draw("same");
   canvas->cd(4);
   //canvas_4->SetLogy();
-  hwQualEmulator->GetXaxis()->SetRangeUser(0.,4.);
+  hwQualEmulator->GetXaxis()->SetRangeUser(-10.,9.);
   hwQualEmulator->SetLineWidth(3);
   hwQualEmulator->Draw();
   hwQualUnpacker->SetLineColor(2);
