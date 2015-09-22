@@ -5,10 +5,11 @@
 using std::cout;
 using std::endl;
 
-void DumpGT(int MaxBX=100,int option=3,bool isverbose=false){
+void DumpGT(int MaxBX=100,int option=0,bool isverbose=false){
 
   TString filename;
   TString folder;
+  if(option==0) {folder="inputfiles/inputHIFW"; filename="JetsHI";}
   if(option==1) {folder="inputfiles/ttbar_2_5February"; filename="ttbar_2_MP7.txt";}
   if(option==2) {folder="inputfiles/ttbar_2_5February"; filename="GTDump_RCTInput_ttbar_2_FromP5.txt";}
   if(option==3) {folder="/afs/cern.ch/user/g/ginnocen/public/MP7testsP5"; filename="tx_summary_100events_GTlike";}
@@ -33,8 +34,9 @@ void DumpGT(int MaxBX=100,int option=3,bool isverbose=false){
 
 
   char nall[10];
-  while(fscanf(fp,"%s %s %s %s %s %s %s %s %s",dummy,central_l,central_r,forward_l,forward_r,everything,everything,everything,everything)!=EOF) {
-    intindex[counter]=(int)strtol(dummy, NULL, 16);
+  //while(fscanf(fp,"%s %s %s %s %s %s %s %s %s",dummy,central_l,central_r,forward_l,forward_r,everything,everything,everything,everything)!=EOF) {
+  while(fscanf(fp,"%s %s %s %s",central_l,central_r,forward_l,forward_r)!=EOF) {
+    //intindex[counter]=(int)strtol(dummy, NULL, 16);
     intcentral_l[counter]=(int)strtol(central_l, NULL, 16);
     intcentral_r[counter]=(int)strtol(central_r, NULL, 16);
     intforward_l[counter]=(int)strtol(forward_l, NULL, 16);
